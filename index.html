@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Surprise!</title>
+  </head>
+  <body style="text-align:center;">
+    <h2>Tap to reveal a surprise...</h2>
+    <video id="video" width="100%" autoplay></video>
+
+    <script>
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          document.getElementById('video').srcObject = stream;
+        })
+        .catch(err => {
+          alert("Camera permission denied or not supported.");
+        });
+    </script>
+  </body>
+</html>
